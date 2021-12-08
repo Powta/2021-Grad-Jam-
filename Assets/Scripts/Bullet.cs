@@ -55,7 +55,9 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.tag == "Wall")
         {
+            Instantiate(impactEffect, transform.position, transform.rotation);
             Destroy(gameObject);
         }
+
     }
 }
