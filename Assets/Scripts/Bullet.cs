@@ -47,17 +47,12 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
 
-      
- 
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Wall")
+        if (hitInfo.tag == "Wall")
         {
             Instantiate(impactEffect, transform.position, transform.rotation);
             Destroy(gameObject);
         }
 
     }
+
 }

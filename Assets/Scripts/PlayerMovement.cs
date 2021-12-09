@@ -8,7 +8,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController2D controller;
-
+    public GameObject myAudioManager;
     public float runSpeed = 40f;
 
     float horizontalMove = 0f;
@@ -32,5 +32,14 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(horizontalMove * Time.fixedDeltaTime, false, jump);
 
         jump = false;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag=="Obstacle")
+        {
+            myAudioManager.gameObject.GetComponent<AudioManager>().PlayGameOver();
+            Destroy(gameObject);
+        }
     }
 }
