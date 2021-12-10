@@ -30,7 +30,7 @@ public class Bullet : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        if(hitInfo.tag=="Enemy")
+        if(hitInfo.tag=="Enemy1")
         {
             Debug.Log(hitInfo.name);
             Enemy enemy = hitInfo.GetComponent<Enemy>();
@@ -46,8 +46,18 @@ public class Bullet : MonoBehaviour
 
             Destroy(gameObject);
         }
+        if (hitInfo.tag == "Enemy2")
+        {
+           
+            PBEnemy foe = hitInfo.GetComponent<PBEnemy>();
+            if (foe != null)
+            {
+                foe.TakeDamage(damage);
+            }
+            Instantiate(impactEffect, transform.position, transform.rotation);
+        }
 
-        if (hitInfo.tag == "Wall")
+            if (hitInfo.tag == "Wall")
         {
             Instantiate(impactEffect, transform.position, transform.rotation);
             Destroy(gameObject);
