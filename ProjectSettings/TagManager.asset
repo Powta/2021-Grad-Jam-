@@ -9,6 +9,8 @@ TagManager:
   - Enemy2
   - Enemy1
   - EnemyBullet
+  - Boss
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -17,7 +19,7 @@ TagManager:
   - Water
   - UI
   - Player
-  - 
+  - Ground
   - 
   - 
   - 

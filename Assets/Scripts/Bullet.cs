@@ -57,7 +57,18 @@ public class Bullet : MonoBehaviour
             Instantiate(impactEffect, transform.position, transform.rotation);
         }
 
-            if (hitInfo.tag == "Wall")
+        if (hitInfo.tag == "Boss")
+        {
+
+            BossScript foe = hitInfo.GetComponent<BossScript>();
+            if (foe != null)
+            {
+                foe.TakeDamage(damage);
+            }
+            Instantiate(impactEffect, transform.position, transform.rotation);
+        }
+
+        if (hitInfo.tag == "Wall")
         {
             Instantiate(impactEffect, transform.position, transform.rotation);
             Destroy(gameObject);

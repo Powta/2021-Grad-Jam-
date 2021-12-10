@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if(collision.gameObject.tag=="Enemy1"||collision.gameObject.tag=="Enemy2")
+        if(collision.gameObject.tag=="Enemy1"||collision.gameObject.tag=="Enemy2"||collision.gameObject.tag=="Boss")
         {
             myAudioManager.gameObject.GetComponent<AudioManager>().PlayGameOver();
             Destroy(gameObject);
