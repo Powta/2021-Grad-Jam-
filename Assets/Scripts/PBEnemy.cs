@@ -11,6 +11,8 @@ public class PBEnemy : MonoBehaviour
 
     private float timer;
     private float timeLength = 3.0f;
+
+    public bool isFacingRight = false;
     // Start is called before the first frame update
     void Start()
     {

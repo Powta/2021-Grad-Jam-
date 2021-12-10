@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBullet : MonoBehaviour
+public class EnemyBullet2 : MonoBehaviour
 {
-    public float speed = -7f;
+    public float speed = 7f;
     public int damage = 40;
     private Rigidbody2D rb;
     public GameObject impactEffect;
@@ -38,10 +38,10 @@ public class EnemyBullet : MonoBehaviour
             Instantiate(impactEffect, transform.position, transform.rotation);
             Destroy(gameObject);
         }
-        if(collision.tag == "Player")
+        if (collision.tag == "Player")
         {
             Instantiate(impactEffect, transform.position, transform.rotation);
-            collision.GetComponent<PlayerMovement>().myAudioManager.gameObject.GetComponent<AudioManager>().PlayGameOver(); 
+            collision.GetComponent<PlayerMovement>().myAudioManager.gameObject.GetComponent<AudioManager>().PlayGameOver();
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }
